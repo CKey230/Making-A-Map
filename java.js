@@ -1,13 +1,14 @@
+//Leaflet Map
+  const map = L.map('map').setView([0,0], 3);
 
-  const map = L.map('map').setView([0,0], 13);
-
-  
+  //Create Tiles
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-  function display(){
-    
+
+//Geographic Location
+  function userLocation(){
 
       if(!navigator.geolocation){
         console.log('not supported by this browser');
@@ -16,18 +17,18 @@ attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStree
       else {
         console.log('supported by this browser')
         navigator.geolocation.getCurrentPosition(position => {
-          const data = {
+          const pos = {
             lat: position.coords.latitude,
             long: position.coords.longitude,
           }
-          L.marker([data.lat,data.long]).addTo(map) .bindPopup('You are here').openPopup();
-          console.log(data)
+          L.marker([pos.lat,pos.long]).addTo(map) .bindPopup('You are here').openPopup();
+          console.log(pos)
         });
       }
     }
-      display();
-      
-
+      userLocation();
+     
+//misc.. on click map popup 
     var popup = L.popup();
     
 
@@ -39,5 +40,7 @@ attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStree
     }
     
     map.on('click', onMapClick);
+
+
     
    
