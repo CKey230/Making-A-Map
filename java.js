@@ -42,5 +42,10 @@ attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStree
     map.on('click', onMapClick);
 
 
-    
+    const sumbit = document.getElementById("submit");
+    sumbit.addEventListener("click", function(e){
+      document.getElementById('business').value
+     console.log(business)
+
+    });
    
