@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Making an Interactive Map</title>
     <script src="java.js" defer></script>
+    <script src="location.js"defer></script>
+
+
     <!-- leaflet css -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
     integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
@@ -17,12 +20,14 @@ integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
 crossorigin=""></script>
 </head>
 <body>
+
+    <!--Styling Map-->
     <style>
         #map{
             height: 700px;
             background-color: grey;
         }
-
+        
         #map::before {
             content: 'Loading...';
             font-size: 3em;
@@ -38,7 +43,7 @@ crossorigin=""></script>
         }
     </style>
 
-
+<!--Drop Down Menu-->
 <form>
     <select id="business">
     <option value="restaurant">Restaurants</option>
@@ -46,9 +51,13 @@ crossorigin=""></script>
     <option value="hotel">Hotels</option>
     <option value="market">Markets</option>
 </select>
+
+<!--submit button-->
 <button type="button" id="submit">Submit</button>
 </form>
 
+
+<!--Space for Map-->
 <div id="map"></div>
 
     
